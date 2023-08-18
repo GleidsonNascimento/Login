@@ -1,0 +1,39 @@
+.background {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-login {
+  background-color: white;
+  width: 20rem;
+  padding: 2rem;
+  margin: auto;
+}
+
+.form-login input {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  width: 14rem;
+  height: 1.9rem;
+  border-radius: 0.7rem;
+}
+
+h3 {
+  color: rgb(0, 0, 0);
+}
+
+.buttons {
+  margin-top: 0.3rem;
+}
+.buttons button {
+  height: 1.9rem;
+  width: 4.3rem;
+  cursor: pointer;
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+}
+button a {
+  text-decoration: none;
+}
