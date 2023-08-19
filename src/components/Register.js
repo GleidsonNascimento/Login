@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
+import { Link } from "react-router-dom";
+import "./register.css";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -9,40 +10,46 @@ export default function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
   };
+
   return (
-    <form>
-      <div>
-        <h3>Nome de usuario</h3>
-        <input
-          type="text"
-          placeholder="Nome de usuario"
-          value={username}
-          onChange={(e) => setUsername}
-        />
-      </div>
-      <div>
-        <h3>Senha</h3>
-        <input
-          type="password"
-          placeholder="senha"
-          value={password}
-          onChange={(e) => setPassword}
-        />
-      </div>
-      <div>
-        <input
-          type="email"
-          placeholder="Digite seu e-mail"
-          value={email}
-          onChange={(e) => setEmail}
-        />
-      </div>
-      <button type="submit" onClick={handleRegister}>
-        Confirma registro
-      </button>
-      <button>
-        <Link to="/">Voltar tela de login</Link>
-      </button>
-    </form>
+    <div className="background">
+      <form className="form-register">
+        <div>
+          <h3>Nome de usuário</h3>
+          <input
+            type="text"
+            placeholder="Nome de usuário"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
+          <h3>Senha</h3>
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <h3>Email</h3>
+          <input
+            type="email"
+            placeholder="Digite seu e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="button-register">
+          <button type="submit" onClick={handleRegister}>
+            Confirmar registro
+          </button>
+          <button>
+            <Link to="/">Voltar para a tela de login</Link>
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }

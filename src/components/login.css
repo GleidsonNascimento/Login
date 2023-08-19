@@ -16,12 +16,15 @@
   margin-top: 0.6rem;
   margin-bottom: 0.6rem;
   width: 14rem;
-  height: 1.9rem;
-  border-radius: 0.7rem;
+  height: 1.4rem;
+  border-radius: 0.3rem;
+  padding: 0.4rem;
 }
 
-h3 {
+.form-login h3 {
   color: rgb(0, 0, 0);
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .buttons {
@@ -29,7 +32,7 @@ h3 {
 }
 .buttons button {
   height: 1.9rem;
-  width: 4.3rem;
+  width: 6.8rem;
   cursor: pointer;
   margin-left: 0.6rem;
   margin-right: 0.6rem;

@@ -1,0 +1,31 @@
+.form-register {
+  background-color: white;
+  width: 26rem;
+  padding: 2rem;
+  margin: auto;
+  border: solid rgb(230, 6, 6) 10px 10px;
+}
+.form-register h3 {
+  font-size: 17px;
+  text-align: left;
+  margin-left: 2.3rem;
+  color: aquamarine;
+}
+.form-register input {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  width: 20.6rem;
+  height: 1.4rem;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  padding-left: 0.6rem;
+}
+.button-register button {
+  height: 2.1rem;
+  width: 10.3rem;
+  cursor: pointer;
+  margin: 0.6rem;
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+  border-radius: 0.4rem;
+}
