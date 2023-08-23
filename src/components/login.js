@@ -6,12 +6,17 @@ import { useAuth } from "./authContext";
 export default function LoginForm({ togglePage }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth();
+  const { login, user } = useAuth();
 
-  const HandleLogin = (e) => {
+  const HandleLogin = async (e) => {
     e.preventDefault();
-    const userDate = { username, password };
-    login(userDate);
+    try {
+      const userData = { username, password };
+      await login(userData);
+      window.location.href = "/dashboard";
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
   };
 
   return (
