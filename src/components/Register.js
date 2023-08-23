@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./register.css";
+import { useAuth } from "./authContext";
 
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { register } = useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
+    const userData = { username, password, email };
+    register(userData);
   };
 
   return (

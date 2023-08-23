@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
 import "./login.css";
+import { useAuth } from "./authContext";
 
 export default function LoginForm({ togglePage }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const HandleLogin = (e) => {
     e.preventDefault();
+    const userDate = { username, password };
+    login(userDate);
   };
 
   return (
