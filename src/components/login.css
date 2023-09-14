@@ -30,6 +30,19 @@
 .buttons {
   margin-top: 0.3rem;
 }
+.logo img {
+  width: 40px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.link {
+  margin: 0.8rem;
+}
+.link a {
+  color: rgb(0, 38, 255);
+
+  font-size: 17px;
+}
 .buttons button {
   height: 1.9rem;
   width: 6.8rem;
@@ -37,6 +50,11 @@
   margin-left: 0.6rem;
   margin-right: 0.6rem;
 }
+
 button a {
   text-decoration: none;
+}
+.button {
+  display: flex;
+  margin: auto;
 }
