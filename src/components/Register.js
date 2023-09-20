@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./register.css";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from "./authContext";
+import { auth2 } from "./firebase";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -9,10 +10,30 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const { register } = useAuth();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    const userData = { username, password, email };
-    register(userData);
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth2,
+        email,
+        password
+      );
+
+      const user = userCredential.user;
+
+      // Atualiza o perfil do usuário com o nome de usuário
+      await updateProfile(user, { displayName: username });
+
+      // Agora, você pode adicionar o nome de usuário ao seu banco de dados se desejar.
+      // Exemplo de como adicionar ao localStorage:
+      const userInfo = { displayName: username, email: user.email };
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+      console.log("Usuário registrado com sucesso:", user);
+    } catch (error) {
+      console.error("Erro ao registrar:", error);
+    }
   };
 
   return (

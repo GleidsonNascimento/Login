@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
+import { Link } from "react-router-dom";
 import { useAuth } from "./authContext";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import "./login.css";
 import { auth2 } from "./firebase";
 
 export default function LoginForm({ togglePage }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, user } = useAuth();
 
@@ -15,7 +15,6 @@ export default function LoginForm({ togglePage }) {
 
     signInWithPopup(auth2, provider)
       .then((result) => {
-        console.log(result);
         const user = result.user;
         localStorage.setItem("userInfo", JSON.stringify(user));
         window.location.href = "/dashboard";
@@ -25,10 +24,10 @@ export default function LoginForm({ togglePage }) {
       });
   }
 
-  const HandleLogin = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const userData = { username, password };
+      const userData = { email, password };
       await login(userData);
       window.location.href = "/dashboard";
     } catch (error) {
@@ -38,19 +37,19 @@ export default function LoginForm({ togglePage }) {
 
   return (
     <div className="background">
-      <form className="form-login" onSubmit={HandleLogin}>
+      <form className="form-login" onSubmit={handleLogin}>
         <div>
-          <h3>Nome de usuario</h3>
+          <h3>Email</h3>
           <input
-            type="text"
-            placeholder="nome do usuario"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"
+            placeholder="Seu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div>
-          <h3>Senha do usuario</h3>
+          <h3>Senha</h3>
           <input
             type="password"
             placeholder="Senha"
